@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const accidentRoutes = require('./routes/accident.routes');
 const peopleRoutes = require('./routes/people.routes');
+const hospitalRoutes = require('./routes/hospital.routes');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  
 app.use('/api/accident', accidentRoutes);
 app.use('/api/people', peopleRoutes);
+app.use('/api/hospital', hospitalRoutes);
 
 
 
