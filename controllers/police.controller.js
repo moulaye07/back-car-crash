@@ -16,6 +16,11 @@ module.exports.createPolice = async (req, res) => {
     }  
 };
 
+module.exports.getAllStations = async (req,res) => {
+    const stations = await policeModel.find();
+    res.status(200).json(stations);
+}
+
 module.exports.getStation = async (req,res) => {
     const stations = await policeModel.find();
     var minDif = 99999;

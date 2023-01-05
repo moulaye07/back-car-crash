@@ -7,7 +7,9 @@ router.post('/', accidentController.createAccident);
 router.get('/', accidentController.getAccidents);
 router.get('/date', accidentController.getAccidentDate);
 
-//get a accident
+router.get('/node', accidentController.getAccidentsOfNode);
+router.get('/node/date', accidentController.getAccidentsOfNodeByDate);
+
 router.get('/:id', accidentController.accidentData);
 
 //modifier

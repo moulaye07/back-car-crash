@@ -17,11 +17,11 @@ const peopleSchema = new mongoose.Schema(
         type: [String],
         default: []
     },
-    picture: {
-      type: String,
-    },
     email: {
         type: String,
+    },
+    insurance: {
+      type: String,
     },
   },
   {

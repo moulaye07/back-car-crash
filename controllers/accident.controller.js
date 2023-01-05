@@ -17,21 +17,41 @@ module.exports.createAccident = async (req, res) => {
 };
 
 module.exports.getAccidents = async (req,res) => {
-    const accidents = await accidentModel.find();
+    const accidents = await accidentModel.find().sort({ createdAt: -1});;
     res.status(200).json(accidents);
 }
 
 module.exports.getAccidentDate = async (req,res) => {
-    const startDate = "2022-12-27"
-    const endDate = "2022-12-30"
-    const today = new Date(startDate);
-    const today1 = new Date(endDate);
-    console.log({ today, today1});
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
+    const date1 = new Date(startDate);
+    const date2 = new Date(endDate);
     const accidents = await accidentModel.find({
-        createdAt: { $gte: today, $lt: today1},
-      })
+        createdAt: { $gte: date1, $lt: date2},
+      }).sort({ createdAt: -1});
     res.status(200).json(accidents);
 }
+
+module.exports.getAccidentsOfNode = async (req,res) => {
+    const longitude = req.body.longitude;
+    const latitude = req.body.latitude;
+    const accidents = await accidentModel.find({longitude: longitude, latitude: latitude}).sort({ createdAt: -1});;
+    res.status(200).json(accidents);
+}
+
+module.exports.getAccidentsOfNodeByDate = async (req,res) => {
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
+    const longitude = req.body.longitude;
+    const latitude = req.body.latitude;
+    const date1 = new Date(startDate);
+    const date2 = new Date(endDate);
+    console.log({ startDate, endDate});
+
+    const accidents = await accidentModel.find({longitude: longitude, latitude: latitude, createdAt: { $gte: startDate, $lt: endDate}}).sort({ createdAt: -1});;
+    res.status(200).json(accidents);
+}
+
 
 
 module.exports.accidentData = (req,res) => {

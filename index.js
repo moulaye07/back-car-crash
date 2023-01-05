@@ -5,6 +5,7 @@ const accidentRoutes = require('./routes/accident.routes');
 const peopleRoutes = require('./routes/people.routes');
 const hospitalRoutes = require('./routes/hospital.routes');
 const policeRoutes = require('./routes/police.routes');
+const insuranceRoutes = require('./routes/insurance.routes');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/api/accident', accidentRoutes);
 app.use('/api/people', peopleRoutes);
 app.use('/api/hospital', hospitalRoutes);
 app.use('/api/police', policeRoutes);
+app.use('/api/insurance', insuranceRoutes);
 
 
 
