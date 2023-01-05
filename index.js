@@ -15,6 +15,8 @@ mongoose.connect("mongodb://192.168.122.214:27017/CRASH", (err) => {
     if (!err) console.log("connected");
     else console.log("error");
 })
+//mongodb://root:example@mongo:27017
+//"mongodb://192.168.122.214:27017/CRASH"
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

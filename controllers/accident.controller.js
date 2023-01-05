@@ -21,6 +21,19 @@ module.exports.getAccidents = async (req,res) => {
     res.status(200).json(accidents);
 }
 
+module.exports.getAccidentDate = async (req,res) => {
+    const startDate = "2022-12-27"
+    const endDate = "2022-12-30"
+    const today = new Date(startDate);
+    const today1 = new Date(endDate);
+    console.log({ today, today1});
+    const accidents = await accidentModel.find({
+        createdAt: { $gte: today, $lt: today1},
+      })
+    res.status(200).json(accidents);
+}
+
+
 module.exports.accidentData = (req,res) => {
     accidentModel.findById(req.params.id, (err, docs) => {
         if(!err) res.send(docs);

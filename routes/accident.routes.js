@@ -5,6 +5,7 @@ router.post('/', accidentController.createAccident);
 
 // get accidents
 router.get('/', accidentController.getAccidents);
+router.get('/date', accidentController.getAccidentDate);
 
 //get a accident
 router.get('/:id', accidentController.accidentData);
