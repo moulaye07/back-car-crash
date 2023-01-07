@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const accidentSchema = new mongoose.Schema(
     {
-        casualties: {
+        victims: {
             type: [String],
             required: true
         },
-        vehicles: {
+        injured: {
             type: [String],
             required: true
         },
@@ -21,7 +21,10 @@ const accidentSchema = new mongoose.Schema(
             type: Number, 
             required: true
         },
-        
+        vehicles: {
+            type: [String],
+            required: true
+        }  
     },
     {
         timestamps: true

@@ -7,8 +7,17 @@ router.post('/', accidentController.createAccident);
 router.get('/', accidentController.getAccidents);
 router.get('/date', accidentController.getAccidentDate);
 
+
 router.get('/node', accidentController.getAccidentsOfNode);
 router.get('/node/date', accidentController.getAccidentsOfNodeByDate);
+
+
+router.get('/statistics', accidentController.getStats);
+router.get('/statistics/date', accidentController.getStatsByDate);
+
+router.get('/statistics/node', accidentController.getStatsOfNode);
+router.get('/statistics/node/date', accidentController.getStatsOfNodeByDate);
+
 
 router.get('/:id', accidentController.accidentData);
 

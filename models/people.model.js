@@ -6,6 +6,11 @@ const peopleSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+    cin: {
+        type : String,
+        require: true,
+        unique: true
+    },
     phone: {
         type: String,
         unique: true,
@@ -19,6 +24,7 @@ const peopleSchema = new mongoose.Schema(
     },
     email: {
         type: String,
+        unique: true
     },
     insurance: {
       type: String,

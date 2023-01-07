@@ -3,9 +3,10 @@ const insuranceModel = require('../models/insurance.model');
 
 //inscription
 module.exports.addPeople = async (req, res) => {
-    const {name, address, relatives, phone, email, insurance} = req.body
+    //const {name, cin, address, relatives, phone, email, insurance} = req.body
     try {
-        const people = await peopleModel.create({name, address, relatives, phone, email, insurance});
+        //const people = await peopleModel.create({name, cin, address, relatives, phone, email, insurance});
+        const people = await peopleModel.create(req.body);
         res.status(201).json({ people : people});
     }
     catch(err) {

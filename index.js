@@ -6,18 +6,16 @@ const peopleRoutes = require('./routes/people.routes');
 const hospitalRoutes = require('./routes/hospital.routes');
 const policeRoutes = require('./routes/police.routes');
 const insuranceRoutes = require('./routes/insurance.routes');
+const carRoutes = require('./routes/car.routes');
 
 const app = express();
 
 
-
 //connection bdd
-mongoose.connect("mongodb://192.168.122.214:27017/CRASH", (err) => {
-    if (!err) console.log("connected");
-    else console.log("error");
+mongoose.connect("mongodb://localhost:27017/CRASH", (err) => {
+    if (!err) console.log("connected to mongo");
+    else console.log("not connected to mongo");
 })
-//mongodb://root:example@mongo:27017
-//"mongodb://192.168.122.214:27017/CRASH"
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,6 +25,7 @@ app.use('/api/people', peopleRoutes);
 app.use('/api/hospital', hospitalRoutes);
 app.use('/api/police', policeRoutes);
 app.use('/api/insurance', insuranceRoutes);
+app.use('/api/car', carRoutes);
 
 
 
